@@ -1,0 +1,12 @@
+print("hi")
+print("hello")
+
+print(true)
+print(false)
+
+print(100)
+print(-100)
+print(100.50)
+
+print("this is a string")
+print('this is a string too')
