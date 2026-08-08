@@ -1,4 +1,4 @@
-local block = game.Workspace.Block
+local block = game.Workspace.Block 
 
 local function changeBlock() -- just random materials 
 	block.Material = "Neon"
