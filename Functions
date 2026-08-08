@@ -1,0 +1,39 @@
+local myBaseplate = game.Workspace.Baseplate -- assigning the pathway to the Baseplate to make changing its properties more convenient
+
+local function changeTransparency()
+	myBaseplate.Transparency = 1
+	myBaseplate.Transparency = 0.5
+	myBaseplate.Transparency = 0
+	myBaseplate.Transparency = 0.5
+	myBaseplate.Transparency = 1
+end
+
+changeTransparency() -- Function call to run the function
+
+local function printABC()
+	print("A")
+	print("B")
+	print("C")
+end
+
+printABC()
+
+-- second half of functions using math
+
+local function addition(n1, n2)
+	local result = n1 + n2
+	print(result)
+end
+
+addition(5, 2)
+addition(10, 20)
+
+-- using return
+
+local function addition2(N1, N2)
+	local result = N1 + N2
+	return result
+end
+local printResult = addition2(5, 2) -- the return assigns the result to addition2(5, 2) so now its like a variable where addition2 just equals the result
+print(printResult) -- since the function behaves kind of like a variable with a value now, printing the function will print the result
+ 
