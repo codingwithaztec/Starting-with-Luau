@@ -1,0 +1,18 @@
+local block = game.Workspace.Block
+
+local function changeBlock() -- just random materials 
+	block.Material = "Neon"
+	task.wait(0.5)
+	block.Material = "Wood"
+	task.wait(0.5)
+	block.Material = "Slate"
+	task.wait(0.5)
+	block.Material = "WoodPlanks"
+	task.wait(0.5)
+	block.Material = "Fabric"
+	task.wait(0.5)
+end
+
+changeBlock()
+changeBlock()
+changeBlock()
