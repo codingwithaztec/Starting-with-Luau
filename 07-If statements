@@ -1,0 +1,37 @@
+if 2 + 2 == 4  then -- 2+2 equals 4 so it is a true value
+	print("It works")
+end
+
+
+if 2 + 3 == 4  then -- 2+3 doesnt equal to 4 so it is a false value
+	print("It works")
+end
+
+
+if 2 + 3 == 4  then -- using else
+	print("It works")
+else
+	print("It doesnt work")
+end
+
+
+if 2 + 3 == 4 then -- using elseif
+	print("2+3 does equal to 4")
+elseif 2 + 2 == 4 then
+	print("2+2 does equal to 4 here!")
+else
+	print("The if statement failed!")
+end
+
+
+if 2 + 3 == 4 then -- using elseif multiple times
+	print("2+2 does equal to 4")
+elseif 2 + 2 == 4 then
+	print("elseif 1 worked!") -- only this is outputted because its true and stops the rest of the if statement from happening
+elseif 2 + 2 == 4 then
+	print("elseif 2 worked!")
+elseif 2 + 2 == 4 then
+	print("elseif 3 worked!")
+else
+	print("The if statement failed!")
+end
