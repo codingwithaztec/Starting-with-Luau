@@ -1,0 +1,53 @@
+if true then
+	print('This statement is true!')
+end
+
+-- logical operators
+
+-- and operator
+if true and false then -- 'and' operator, every condition has to be true
+	print('This statement is true too!')
+else
+	print('This statement is false!')
+end
+
+-- or operator
+if true or false then -- 'or' operator, at least one condition has to be true
+	print('This statement is true for OR operator')
+else
+	print('This statement is false for OR operator')
+end
+
+-- using math with these operators
+if 2 + 2 == 4 and 5 + 6 == 10 then -- 2+2 does equal 4 but 5+6 does not equal 10 therefore the expression is false
+	print("This statement is mathematically true!")
+else
+	print('This statement is mathematically false!') -- this is outputted instead
+end
+
+if 2 + 2 == 4 or 5 + 6 == 10 then -- 2+2 does equal 4 but 5+6 does not equal 10. however, it is an 'or' operator and thus only one needs to be true
+	print("This statement is mathematically true!") -- since expression is true, this is outputted instead
+else
+	print('This statement is mathematically false!') 
+end
+
+-- not operator
+if not true then -- 'not' operator reverses the condition/boolean expression, thus "not true" is "false"
+	print('This statement is true!')
+else 
+	print('This statement is false because of the NOT operator!') -- this is outputted instead
+end
+
+if not (2 + 2 == 4) then -- must wrap the condition in brackets otherwise it will not work, game will try to interpret as 'not 2' which just doesnt make sense
+	print('This statement is true!')
+else 
+	print('This statement is false because of the NOT operator!') -- this is outputted instead
+end
+
+-- relational operators
+-- == relational operator means equal to
+-- ~= relational operator means not equal to
+-- >  relational operator means greater than
+-- <  relational operator means less than
+-- >= relational operator means greater than or equal to
+-- <= relational operator means less than or equal to
