@@ -1,0 +1,45 @@
+-- learning about how local works and how global works
+-- importance of local
+local myAmazingBaseplate = game.Workspace.Baseplate
+
+local function myGreatFunction()
+	local trueStatement = true -- this is a local variable and only exists inside the function
+	print(trueStatement)
+end
+
+myGreatFunction()
+
+print(trueStatement) -- since the variable is local, it can only be accessed in the function where it was declared which is why this doesnt work
+
+local myBigNumber1 = 50000
+local myBigNumber2 = 50000
+local myBigNumber3 = 50000
+local myBigNumber4 = 50000
+
+-- this is not good because it allows access to these variables throughout the script which can create unoptimization especially when the variables are not frequently or not used at all
+-- a variable without the 'local' becomes a global variable
+-- you are can create global variables inside functions but is not recommended
+
+local function myGreatFunction2()
+	local result = nil -- a 'nothing' value
+	if result == nil then
+		local result1 = true
+		print(result1)
+	else
+		local result2 = false
+		print(result2)
+		print(result1) -- this will not work because result1 is local to the if statement and is not accessible outside of it
+	end
+end
+
+myGreatFunction2()
+
+print(trueStatement) -- this doesn't work as the variable is only made after this print statement
+local trueStatement = 'string'
+
+local function tryToMakeGlobal()
+	globalVariable = 'string' -- this creates a global variable because it is not local
+	print(globalVariable)
+end
+
+tryToMakeGlobal()
