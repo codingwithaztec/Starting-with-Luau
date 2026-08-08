@@ -1,0 +1,4 @@
+local firstvariable = 100 
+print(firstvariable)
+print(firstvariable)
+print(firstvariable)
