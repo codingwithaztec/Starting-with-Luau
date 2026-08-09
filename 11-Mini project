@@ -1,0 +1,59 @@
+-- mini project
+
+-- making the variables
+local strength = 0
+local clickGain = 1
+local multiplier = 1
+local strengthGate = game.Workspace.Gate2
+
+-- making the functions
+local function strengthCalc()
+	local strengthGain = clickGain * multiplier
+	strength = strength + strengthGain
+	print(strength)
+end
+
+local function checkStrength()
+	if strength < 10 then
+		print('Weak')
+		strengthGate.Transparency = 0
+		strengthGate.CanCollide = true
+	elseif strength >= 10 and strength < 50 then
+		print('Getting stronger')
+		strengthGate.Transparency = 0.25
+		strengthGate.CanCollide = true
+	elseif strength >= 50 and strength < 100 then
+		print('Strong')
+		strengthGate.Transparency = 0.5
+		strengthGate.CanCollide = true
+	else
+		print('Very strong')
+		strengthGate.Transparency = 0.75
+		strengthGate.CanCollide = false
+	end
+end
+
+
+strengthCalc()
+strengthCalc()
+strengthCalc()
+checkStrength()
+
+--using return
+local function strengthLevel(str)
+	if str < 10 then
+		return 'Weak'
+	elseif str >= 10 and str < 50 then
+		return 'Getting stronger'
+	elseif str >= 50 and str < 100 then
+		return 'Strong'
+	else
+		return 'Very strong'
+	end
+end
+
+print(strengthLevel(100))
+print(strengthLevel(50))
+print(strengthLevel(10))
+print(strengthLevel(0))
+
