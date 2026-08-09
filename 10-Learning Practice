@@ -1,0 +1,99 @@
+-- number checker
+local number = -67
+
+if number > 0 then
+	print('Positive')
+elseif number < 0 then
+	print('Negative')
+else
+	print('Zero')
+end
+
+-- Multiplier calculator
+local function multiplier(num1, num2)
+	local result = num1 * num2
+	print(result)
+end
+
+multiplier(5, 10)
+
+-- Bigger number
+local function biggerNumber(numb1, numb2)
+	if numb1 > numb2 then
+		print(numb1 .. ' is bigger') -- .. can be used to add strings, the space in the ' is bigger' is to add a space between the two
+	elseif numb2 > numb1 then
+		print(numb2 .. ' is bigger')
+	else
+		print('Equal')
+	end
+end
+
+biggerNumber(10, 10)
+biggerNumber(12, 10)
+biggerNumber(8, 10)
+
+-- strength calculator
+local clickgain = 1
+local multiplier = 1
+local strength = 0
+
+local function strengthCalc()
+	local strengthGain = clickgain * multiplier
+	strength = strength + strengthGain
+	print(strength)
+end
+
+strengthCalc()
+strengthCalc()
+strengthCalc()
+print(strength)
+
+-- Strength requirements
+if strength >= 10 and strength <50 then
+	print("You're getting strong!")
+elseif strength >= 50 and strength < 100 then
+	print("You're strong!")
+elseif strength < 10 then
+	print("You're still weak")
+else 
+	print("You're very strong!")
+end
+
+-- Boolean practice
+local hasPermission = true
+local isBanned = false
+if hasPermission == true and isBanned == false then
+	print('access granted')
+end
+
+--Return and conditions
+local function checkNumber(num)
+	if num > 0 then
+		return 'Positive'
+	elseif num < 0 then
+		return 'Negative'
+	else
+		return 'Zero'
+	end
+end
+
+print(checkNumber(0))
+print(checkNumber(10))
+print(checkNumber(-10))
+
+--property changing
+strength = 100
+local strengthGate = game.Workspace.Gate
+if strength < 10 then
+	strengthGate.Transparency = 0
+	strengthGate.CanCollide = true
+elseif strength >= 10 and strength < 50 then
+	strengthGate.Transparency = 0.25
+	strengthGate.CanCollide = true
+elseif strength >= 50 and strength < 100 then
+	strengthGate.Transparency = 0.5
+	strengthGate.CanCollide = true
+else
+	strengthGate.Transparency = 0.75
+	strengthGate.CanCollide = false
+end
