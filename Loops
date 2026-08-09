@@ -1,0 +1,45 @@
+-- for loop
+for i = 1, 5, 1 do -- x, y, z - x is starting value, y is end value, z is the increment value
+	print(i)
+end
+
+for i = 5, 1, -1 do -- you can actually increment backwards, this counts backwards instead but still runs the same amount of times as code above
+	print(i)
+end
+
+-- while loop
+local whileCounter = 1
+
+while whileCounter <= 5 do 
+	print(whileCounter)
+	whileCounter += 1 -- this means whileCounter = whileCounter + 1 for short
+end
+
+--you can have loops inside of loops, these are called 'nested' loops
+
+for i = 1, 5, 1 do 
+	print('A')
+	for i = 1, 3, 1 do 
+		print('B')
+	end
+end
+
+
+local baseplate = game.Workspace.Baseplate
+
+for a = 1, 10, 1 do
+	baseplate.BrickColor = BrickColor.new('Toothpaste')
+	task.wait(1) -- task.wait() is a way to pause in between code, the number inside the () is number of seconds to wait
+	baseplate.BrickColor = BrickColor.new('Really red')
+	task.wait(1)
+	baseplate.BrickColor = BrickColor.new('Gold')
+	task.wait(1)
+end
+
+-- if the next increment would pass the end value, the loop stops
+-- the loop does not need to reach the end value exactly
+-- e.g. for i = 1, 5, 3 do → 1, 4 and does not continue because 7 is greater than 5
+-- example of this is 
+for b = 1, 5, 3 do -- this only outputs test twice 
+	print('test')
+end
