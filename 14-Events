@@ -1,0 +1,26 @@
+game.Players.PlayerAdded:Connect(function(player) -- this happens when a new player joins the game
+	print('A new player has joined into the game!')
+	print(player)
+end)
+
+local function playerAdded(player)
+	print('A new player has joined')
+	print(player)
+end
+
+game.Players.PlayerAdded:Connect(playerAdded)
+
+
+local touchPart = game.Workspace.TouchPart
+
+local partIsTouched = false
+
+touchPart.Touched:Connect(function(otherPart)
+	if partIsTouched == false then 
+		partIsTouched = true
+		print(otherPart.Name) -- otherpart is the par that touched TouchPart
+		
+		task.wait(1) -- this is a debounce/cooldown so this prevents the code from triggering again for 1 second
+		partIsTouched = false
+	end
+end)
