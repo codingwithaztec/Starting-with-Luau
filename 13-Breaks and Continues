@@ -1,0 +1,47 @@
+--using break in for and while loop
+
+for i = 1, 100000 do
+	print('This statement is printed')
+	if i == 200 then
+		break -- this stops the loop
+	end
+end
+
+local counter = 1 
+while counter <= 100000 do
+	print('This while statement is printed')
+	
+	if counter == 500 then
+		break -- this stops the loop
+	end
+	
+	counter += 1 
+end
+
+--using continue in for and while loop
+
+for i = 1, 100000 do
+	if i == 10 then
+		print('i is equal to 10, so skip this iteration')
+		continue -- continue skips the rest of the current iteration
+	end
+	if i == 200 then
+		break
+	end
+	print('This statement is printed')
+end
+
+local counter1 = 1
+while counter1 <= 100000 do
+	print('This while statement is printed')
+	if counter1 == 100 then
+		print('This is the 100th iteration of the while counter')
+		counter1 += 1 -- this is IMPORTANT because without this, the loop will run forever since the loop stops before it can reach the counter+=1
+		continue
+	end
+	
+	if counter1 == 500 then 
+		break
+	end
+	counter1 += 1
+end
