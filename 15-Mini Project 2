@@ -1,0 +1,63 @@
+--[[
+FLOW:
+
+Button touched:
+countdown
+target appears
+ongoingTraining = true
+target can give points
+10 points
+training ends
+target disappears
+score resets
+]]
+
+local button = game.Workspace.Button -- making the variables for conveniency
+local touched = false  -- debounce
+local target = game.Workspace.Target
+local targetTouched = false -- debounce
+local score = 0
+local ongoingTraining = false -- tracks whether training is active
+
+target.Transparency = 1 -- setting target invis and untouchable 
+target.CanCollide = false
+
+button.Touched:Connect(function(hit)
+	if ongoingTraining == false then -- events can communicate with each other through shared variable. the event below this changes the variable and yet it still works here
+		if touched == false then
+			touched = true -- debounce; prevents another countdown from starting
+			for i = 10, 0, -1 do
+				print(i)
+				task.wait(1)
+				if i == 0 then
+					print('GO!') 
+					target.Transparency = 0 -- sets target visible and touchable allowing you to play 
+					target.CanCollide = true
+					ongoingTraining = true -- sets ongoing training true so this event cant happen until this gets set false and gives way to the event below
+				end
+			end
+			touched = false
+		end
+	end
+end)
+
+
+target.Touched:Connect(function(hit)
+	if ongoingTraining == true and score <= 10 then -- ongoing training is true, can only run while true and score less than 10
+		if targetTouched == false then 
+			score += 1 -- same thing as score = score + 1
+			targetTouched = true
+			print('Your score is ' .. score) -- using .. as concatnation to connect the string and variable in a print statement
+			if score == 10 then
+				print('Training complete!')
+				ongoingTraining = false -- sets ongoing training to false letting you run the above event again and thus this event afterwards
+				target.Transparency = 1 -- sets target invisible and untouchable again
+				target.CanCollide = false
+				task.wait(3)
+				score = 0 -- resets score
+			end
+			task.wait(1) -- debounce
+			targetTouched = false
+		end
+	end
+end)
