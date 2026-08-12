@@ -1,0 +1,86 @@
+--[[Player touches a Start button.
+A countdown runs from 3 → 2 → 1 → GO.
+The target appears.
+Start a timer when the target appears.
+When the player touches the target, calculate how long they took.
+
+Print:
+Reaction time: 0.83 seconds
+Hide the target again.
+Prevent the player from starting another round while one is active.]]
+
+
+-- new syntax learned
+-- workspace:GetServerTimeNow() -- gets the current server-synchronized time
+--[[this part was by AI because I havent learnt how to change properties of a MODEL yet
+for _, object in obbyGame:GetDescendants() do
+	if object:IsA("BasePart") then
+		object.Transparency = 1
+		object.CanCollide = false
+	end
+end]]
+-- GetDescendants() gets everything inside the Model
+-- IsA("BasePart") checks that the object is a Part
+-- this lets me change the properties of every Part in the Model
+
+
+
+local button = game.Workspace.Button
+local touched = false
+local target = game.Workspace.Target
+local obbyGame = game.Workspace.Obby -- this is a model of multiple parts
+for _, object in obbyGame:GetDescendants() do
+	if object:IsA("BasePart") then
+		object.Transparency = 1
+		object.CanCollide = false
+	end
+end
+target.Transparency = 1
+target.CanCollide = false
+local ongoingGame = false
+local time 
+
+button.Touched:Connect(function()
+	if touched == false and ongoingGame == false then
+		touched = true 
+		for i = 3, 0, -1 do
+			print(i)
+			if i == 0 then
+				print('GO!')
+				target.Transparency = 0
+				target.CanCollide = true
+				ongoingGame = true
+				for _, object in obbyGame:GetDescendants() do
+					if object:IsA("BasePart") then
+						object.Transparency = 0
+						object.CanCollide = true
+					end
+				end
+				time = workspace:GetServerTimeNow()
+			end
+			task.wait(1)
+		end
+		touched = false
+	end
+end)
+
+target.Touched:Connect(function()
+	if ongoingGame == true then
+		ongoingGame = false
+		local time2 = workspace:GetServerTimeNow()
+		local timeEnd = time2 - time
+		print(timeEnd)
+		target.Transparency = 1
+		target.CanCollide = false
+		for _, object in obbyGame:GetDescendants() do
+			if object:IsA("BasePart") then
+				object.Transparency = 1
+				object.CanCollide = false
+			end
+		end
+		task.wait(1)
+	end
+end)
+
+
+
