@@ -1,0 +1,13 @@
+local killbrick = script.Parent -- this is the killbrick
+
+killbrick.Touched:Connect(function(otherpart) -- killbrick > touched > connects to a function with parameter otherpart
+	local humanoid = otherpart.Parent:FindFirstChild('Humanoid') 
+	-- otherpart.Parent then finds the parent of what touched it and searches within the parent for "Humanoid"
+	-- and this result is set as humanoid 
+	-- if humanoid is found, it returns humanoid(humanoid has a value) else it returns nil
+	if humanoid then -- if humanoid is found, the value is truthy and the if statement is true
+		-- in general or at lower level, there is truthy and falsey
+		-- if the variable has a value that is NOT nil or false, it is truthy and thus if variable then is true and runs
+		humanoid.Health = 0 -- sets player hp to 0
+	end
+end)
