@@ -1,0 +1,24 @@
+-- this script is inside a model with Part1 Part2 Part3
+
+local model = game.Workspace.Model -- these 2 lines are equivalent
+
+local model = script.Parent -- these 2 lines are equivalent as parent locates the parent, which in this case is the model
+
+
+local part1 = model.Part1 -- these 2 lines are equivalent
+
+local part1 = model:FindFirstChild("Part1") -- these 2 lines are equivalent 
+
+-- why use findfirstchild('part1')?? because local part1 = model.part1 directly accesses a child named part1.
+-- However, if there is no part1, or part1 comes at a later date due to game design, then the script will break.
+-- thus we use findfirstchild('part1') to locate the part1 inside the model. Instead of breaking, it will return a nil value instead if it isnt found which is manageable
+-- compared to breaking the script
+
+if part1 then
+	part1.BrickColor = BrickColor.new("Cocoa")
+end
+
+local part2 = model:WaitForChild("Part2") -- this instead WAITS for the part2 to be detected in the model.
+print('Part 2 has been detected!') -- this is printed when part2 is detected in model
+-- you can test this out by deleting part 2, going to play and selecting run in studio, and then adding part2 back in
+
