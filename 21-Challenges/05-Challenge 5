@@ -1,0 +1,38 @@
+-- Player has Coins.
+-- Touch/button buys something.
+-- Check if they have enough coins.
+-- Deduct the price.
+-- Give them the reward.
+
+
+game.Players.PlayerAdded:Connect(function(player)
+	local leaderstats = Instance.new('Folder')
+	leaderstats.Name = 'leaderstats'
+	leaderstats.Parent = player
+	
+	local coins = Instance.new('IntValue')
+	coins.Name = 'Coins'
+	coins.Parent = leaderstats
+	coins.Value = 100
+end)
+
+local shop = script.Parent
+local touched = false
+
+shop.Touched:Connect(function(otherPart)
+	local character = otherPart.Parent
+	local humanoid = character:FindFirstChild('Humanoid')
+	if humanoid and touched == false then
+		touched = true
+		local player = game.Players:GetPlayerFromCharacter(character)
+		local coins = player.leaderstats.Coins
+		local product = 10
+		if coins.Value / product >= 1 then
+			print('Product has been purchased')
+			coins.Value = coins.Value - product
+		end
+		task.wait(0.5)
+		touched = false
+	end
+end)
+
