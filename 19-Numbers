@@ -13,5 +13,5 @@ while counter < 25 do
 	counter += 1
 end
 
-local randomValue = math.random(50, -20) -- this is not valid as the maximum value must be less than the minimum value
+local randomValue = math.random(50, -20) -- this is not valid as the maximum value must be greater than the minimum value
 math.random() -- this is going to pick a random decimal number between 0 up to 1 by default
