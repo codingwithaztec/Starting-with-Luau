@@ -1,0 +1,23 @@
+-- instances are majority of things you see in a game, workspace is an instance, baseplate is an instance
+local newPart = Instance.new("Part") -- creates a new instance
+newPart.Name = 'NewInstancePart' -- changes name of the instance
+newPart.Parent = game.Workspace -- sets it to the workspace
+
+game.Players.PlayerAdded:Connect(function(player)
+	local leaderstats = Instance.new('Folder') -- creates a folder
+	leaderstats.Name = 'leaderstats' -- changes the name to leaderstats which is important it has to be leaderstats specifically for roblox's built in leaderboard system
+	leaderstats.Parent = player -- sets this under the player
+	
+	local coins = Instance.new('IntValue') -- creates a new instance of an integer value
+	coins.Name = 'Coins'
+	coins.Value = 0 -- changes the value of coins
+	coins.Parent = leaderstats
+	
+	local counter = 0
+	while counter < 25 do
+		task.wait(1)
+		coins.Value += 1
+		counter += 1
+	end
+	
+end)
