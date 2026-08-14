@@ -1,0 +1,9 @@
+local rgb = script.Parent
+for i = 1, 30 do
+	local redValue = math.random(0, 255)
+	local greenValue = math.random(0, 255)
+	local blueValue = math.random(0, 255)
+	
+	rgb.Color = Color3.fromRGB(redValue, greenValue, blueValue)
+	task.wait(1)
+end
