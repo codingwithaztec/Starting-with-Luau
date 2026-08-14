@@ -1,0 +1,8 @@
+local killbrick = script.Parent
+
+killbrick.Touched:Connect(function(otherPart)
+	local player = otherPart.Parent:FindFirstChild('Humanoid')
+	if player then
+		player.Health = 0
+	end
+end)
