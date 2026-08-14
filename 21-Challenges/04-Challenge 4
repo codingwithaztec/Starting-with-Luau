@@ -1,0 +1,25 @@
+local part = script.Parent
+local touched = false
+part.Touched:Connect(function(otherPart)
+	local player = otherPart.Parent:FindFirstChild('Humanoid')
+	if player and touched == false then
+		touched = true
+		local RNG = math.random(1, 100)
+		local function reward()
+			if RNG <= 100 and RNG >= 30 then
+				return "Common"
+			elseif RNG <= 29 and RNG >= 10 then
+				return "Uncommon"
+			elseif RNG <= 9 and RNG >= 2 then
+				return "Rare"
+			else 
+				return "Epic"
+			end
+		end
+		print(reward())
+		task.wait(1)
+		touched = false
+		
+	end
+	
+end)
